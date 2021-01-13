@@ -12,7 +12,7 @@ echo "BRANCH:" $BRANCH
 echo "TARGET:" $TARGET
 
 echo "Fetching..."
-git fetch --prune-tags
+git fetch --all --prune-tags
 echo "...done"
 echo "vvvvvvvvvvvvvvvv"
 git --no-pager diff --name-only remotes/origin/$TARGET
