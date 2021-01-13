@@ -2,9 +2,6 @@
 
 function get_files {
   files=$(git --no-pager diff --name-only FETCH_HEAD)
-  echo "FILES:"
-  echo $files
-  echo "======"
 }
 
 cd $GITHUB_WORKSPACE/
@@ -14,15 +11,14 @@ echo "------------- Script Starting ----------------------"
 echo "BRANCH:" $BRANCH
 echo "TARGET:" $TARGET
 
+echo "Fetching..."
 git fetch --prune-tags
-git status
-git --no-pager diff --name-only FETCH_HEAD
-
-
-# git checkout $BRANCH
+echo "...done"
 echo "vvvvvvvvvvvvvvvv"
-git --no-pager diff --name-only remotes/origin/$branch remotes/origin/$target
+git --no-pager diff --name-only remotes/origin/$TARGET
 echo "^^^^^^^^^^^^^^^^"
+echo 1
+
 get_files
 
 if [ -z "$files" ];
