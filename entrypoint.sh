@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function get_files {
-  files=$(git --no-pager diff --name-only FETCH_HEAD)
+  files=$(git --no-pager diff --name-only $BRANCH $TARGET)
 }
 
 cd $GITHUB_WORKSPACE/
