@@ -19,7 +19,7 @@ then
 else
   echo "Files found, iterating for *.spec files"
   specs=0
-  export IFS=" "
+  IFS=' ' read -r -a $files <<< $files
   for file in $files; do
     echo "checking:" $file
     if [[ $file =~ .*\.spec ]]; then
