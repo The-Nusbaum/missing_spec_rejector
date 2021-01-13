@@ -1,0 +1,9 @@
+name: 'Missing Spec Rejector'
+description: 'Checks incoming filesets on PRs for updated .spec files'
+author: 'Ian Nusbaum'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+branding:
+  icon: 'git-merge'
+  color: 'blue'

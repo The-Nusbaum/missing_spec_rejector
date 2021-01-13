@@ -1,0 +1,25 @@
+name: Missing Spec Rejecter
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - ready_for_review
+    branches-ignore:
+      - master
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@master
+    - name: Check for Spec changes
+      uses: the-nusbaum/missing_spec_rejector@master
+      env:
+        TOKEN: ${{ secrets.TOKEN }}
+        TRIGGER: ${{ github.event.pull_request.base.ref }} # can use the triggering branch or define a fixed one like this: 'master'
+        REPO_OWNER: the-nusbaum
