@@ -21,6 +21,7 @@ else
   specs=0
   export IFS=" "
   for file in $files; do
+    echo "checking:" $file
     if [[ $file =~ .*\.spec ]]; then
       specs=$(($specs + 1))
     fi
