@@ -13,7 +13,7 @@ echo "TARGET:" $TARGET
 
 git fetch --prune-tags
 
-git checkout $BRANCH
+# git checkout $BRANCH
 
 get_files
 
