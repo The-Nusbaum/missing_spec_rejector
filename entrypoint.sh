@@ -31,7 +31,7 @@ echo "BRANCH:" $BRANCH
 echo "TARGET:" $TARGET
 
 echo "Fetching..."
-git fetch --all --prune-tags /dev/null 2>&1
+git fetch --all --prune-tags > /dev/null 2>&1
 echo "...done"
 
 get_files
