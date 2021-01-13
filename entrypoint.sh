@@ -14,6 +14,8 @@ cd $GITHUB_WORKSPACE/
 
 echo "------------- Script Starting ----------------------"
 echo "TRIGGERING BRANCH:" $TRIGGER
+echo "BRANCH:" $BRANCH
+echo "TARGET:" $TARGET
 get_current_info
 
 git fetch --prune-tags
