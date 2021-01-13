@@ -20,7 +20,9 @@ git --no-pager diff --name-only FETCH_HEAD
 
 
 # git checkout $BRANCH
-
+echo "vvvvvvvvvvvvvvvv"
+git --no-pager diff --name-only remotes/origin/$branch remotes/origin/$target
+echo "^^^^^^^^^^^^^^^^"
 get_files
 
 if [ -z "$files" ];
