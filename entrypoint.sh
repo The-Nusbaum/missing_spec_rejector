@@ -7,7 +7,7 @@ function get_files {
 function iterate_files {
   echo "Files found, iterating for *.spec files"
   specs=0
-  IFS=' ' read -r -a $files <<< $files
+  IFS=' ' read -r -a $files <<< "$files"
   for file in $files; do
     echo "checking:" $file
     if [[ $file =~ .*\.spec ]]; then
@@ -31,7 +31,7 @@ echo "BRANCH:" $BRANCH
 echo "TARGET:" $TARGET
 
 echo "Fetching..."
-git fetch --all --prune-tags
+git fetch --all --prune-tags /dev/null 2>&1
 echo "...done"
 
 get_files
