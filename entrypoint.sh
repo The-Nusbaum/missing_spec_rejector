@@ -7,7 +7,7 @@ function get_files {
 function iterate_files {
   echo "Files found, iterating for *.spec files"
   specs=0
-  IFS=' ' read -r -a $files <<< "$files"
+  IFS=' ' read -r -a files <<< "$files"
   for file in $files; do
     echo "checking:" $file
     if [[ $file =~ .*\.spec ]]; then
