@@ -1,7 +1,10 @@
 #!/bin/bash
 
 function get_files {
-  files=$(git --no-pager diff --name-only $BRANCH $TARGET)
+  files=$(git --no-pager diff --name-only FETCH_HEAD)
+  echo "FILES:"
+  echo $files
+  echo "======"
 }
 
 cd $GITHUB_WORKSPACE/
@@ -12,6 +15,9 @@ echo "BRANCH:" $BRANCH
 echo "TARGET:" $TARGET
 
 git fetch --prune-tags
+git status
+git --no-pager diff --name-only FETCH_HEAD
+
 
 # git checkout $BRANCH
 
