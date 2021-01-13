@@ -14,6 +14,8 @@ cd $GITHUB_WORKSPACE/
 
 echo "------------- Script Starting ----------------------"
 
+get_current_info
+
 git fetch --prune-tags
 
 git checkout $branch
