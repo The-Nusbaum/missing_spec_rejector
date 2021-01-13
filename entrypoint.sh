@@ -1,11 +1,5 @@
 #!/bin/bash
 
-function get_current_info {
-  branch=$(git rev-parse --abbrev-ref HEAD)
-  current_branch=${TRIGGER:=$branch}
-  echo "Trigger:" $current_branch
-}
-
 function get_files {
   files=$(git --no-pager diff --name-only FETCH_HEAD)
 }
@@ -13,14 +7,13 @@ function get_files {
 cd $GITHUB_WORKSPACE/
 
 echo "------------- Script Starting ----------------------"
-echo "TRIGGERING BRANCH:" $TRIGGER
+
 echo "BRANCH:" $BRANCH
 echo "TARGET:" $TARGET
-get_current_info
 
 git fetch --prune-tags
 
-git checkout $branch
+git checkout $BRANCH
 
 get_files
 
