@@ -1,6 +1,7 @@
 #!/bin/bash
 
 function get_files {
+  git --no-pager diff --name-only remotes/origin/$TARGET
   files=$(git --no-pager diff --name-only remotes/origin/$TARGET)
 }
 
