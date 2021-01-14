@@ -10,7 +10,7 @@ function iterate_files {
   IFS=' ' read -r -a files <<< "$files"
   for file in $files; do
     echo "checking:" $file
-    if [[ $file =~ .*\.spec ]]; then
+    if [[ $file =~ .*_spec\.rb ]]; then
       specs=$(($specs + 1))
     fi
   done
