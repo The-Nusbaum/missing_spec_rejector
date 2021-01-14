@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function get_files {
-  git --no-pager diff --name-only remotes/origin/$TARGET
+  
   files=$(git --no-pager diff --name-only remotes/origin/$TARGET)
 }
 
@@ -38,7 +38,7 @@ echo "...done"
 echo "checking out " $BRANCH
 git checkout $BRANCH
 echo "...done"
-
+git --no-pager diff --name-only remotes/origin/$TARGET
 get_files
 
 if [ -z "$files" ];
