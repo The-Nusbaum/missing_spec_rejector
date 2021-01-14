@@ -34,6 +34,10 @@ echo "Fetching..."
 git fetch --all --prune-tags > /dev/null 2>&1
 echo "...done"
 
+echo "checking out " $BRANCH
+git checkout $BRANCH
+echo "...done"
+
 get_files
 
 if [ -z "$files" ];
