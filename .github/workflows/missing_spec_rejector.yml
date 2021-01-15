@@ -18,8 +18,5 @@ jobs:
     - name: Check for Spec changes
       uses: the-nusbaum/missing_spec_rejector@main
       env:
-        TOKEN: ${{ secrets.TOKEN }}
         BRANCH: ${{ github.event.pull_request.head.ref }}
         TARGET: ${{ github.event.pull_request.base.ref }}
-        TRIGGER: ${{ github.event.pull_request.base.ref }} # can use the triggering branch or define a fixed one like this: 'master'
-        REPO_OWNER: the-nusbaum
