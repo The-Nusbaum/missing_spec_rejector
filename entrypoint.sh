@@ -1,12 +1,12 @@
 #!/bin/bash
 
 function get_files {
-echo "Getting File List:\n"
+echo "Getting File List."
   files=$(git --no-pager diff --name-only remotes/origin/$TARGET)
 }
 
 function count_specs {
-  echo "Counting Files:\n"
+  echo "Counting Files."
   specs=$(echo $files| tr ' ' '\n' | grep '_spec.rb' -c)
   echo $specs " specs found"
 }
