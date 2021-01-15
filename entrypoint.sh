@@ -1,23 +1,14 @@
 #!/bin/bash
 
 function get_files {
+echo "Getting File List:\n"
   files=$(git --no-pager diff --name-only remotes/origin/$TARGET)
 }
 
-function iterate_files {
-  echo "Files found, iterating for *.spec files"
-  specs=0
-  IFS=' ' read -r -a mlfiles <<< "$files"
-  for file in $mlfiles; do
-    echo "checking:" $file
-    if [[ $file =~ .*_spec\.rb ]]; then
-      specs=$(($specs + 1))
-    fi
-  done
-}
-
 function count_specs {
+  echo "Counting Files:\n"
   specs=$(echo $files| tr ' ' '\n' | grep '_spec.rb' -c)
+  echo $specs " specs found"
 }
 
 cd $GITHUB_WORKSPACE/
@@ -34,7 +25,6 @@ echo "...done"
 # echo "checking out " $BRANCH
 # git checkout $BRANCH
 # echo "...done"
-git --no-pager diff --name-only remotes/origin/$TARGET
 get_files
 
 if [ -z "$files" ];
